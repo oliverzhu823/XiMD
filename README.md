@@ -11,7 +11,23 @@
 [![Built with: Tauri 2.0](https://img.shields.io/badge/Built%20with-Tauri%202.0%20(Rust)-orange.svg)]()
 [![React: 19](https://img.shields.io/badge/React-19-61dafb.svg)]()
 
+<br /><br />
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/preview-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/preview.png">
+  <img alt="XiMD Editor Interface Preview" src="assets/preview.png" width="100%">
+</picture>
+
 </div>
+
+---
+
+## 📸 界面预览
+
+| 明亮模式 (Light Mode) | 深色模式 (Dark Mode) |
+| :---: | :---: |
+| <img src="assets/preview.png" alt="Light Mode" width="100%" /> | <img src="assets/preview-dark.png" alt="Dark Mode" width="100%" /> |
 
 ---
 

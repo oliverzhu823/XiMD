@@ -1,0 +1,299 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mac-bg: rgba(255, 255, 255, 0.85);
+  --mac-surface: rgba(248, 250, 252, 0.95);
+  --mac-sidebar: rgba(241, 245, 249, 0.75);
+  --mac-border: rgba(226, 232, 240, 0.8);
+  --mac-text: #1e293b;
+  --mac-muted: #64748b;
+  --mac-accent: #0284c7;
+  --mac-hover: rgba(226, 232, 240, 0.5);
+  --editor-font: -apple-system, BlinkMacSystemFont, "PingFang SC", "SF Pro Text", "Hiragino Sans GB", sans-serif;
+  --mono-font: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Crepe light theme */
+  --crepe-color-background: transparent;
+  --crepe-color-on-background: #1e293b;
+  --crepe-color-surface: rgba(248, 250, 252, 0.95);
+  --crepe-color-on-surface: #1e293b;
+  --crepe-color-outline: rgba(226, 232, 240, 0.8);
+  --crepe-color-primary: #0284c7;
+  --crepe-font-title: var(--editor-font);
+  --crepe-font-default: var(--editor-font);
+  --crepe-font-code: var(--mono-font);
+}
+
+.dark {
+  --mac-bg: rgba(24, 24, 27, 0.9);
+  --mac-surface: rgba(39, 39, 42, 0.95);
+  --mac-sidebar: rgba(24, 24, 27, 0.75);
+  --mac-border: rgba(63, 63, 70, 0.6);
+  --mac-text: #f4f4f5;
+  --mac-muted: #a1a1aa;
+  --mac-accent: #38bdf8;
+  --mac-hover: rgba(63, 63, 70, 0.4);
+
+  /* Crepe dark theme */
+  --crepe-color-background: transparent;
+  --crepe-color-on-background: #f4f4f5;
+  --crepe-color-surface: rgba(39, 39, 42, 0.95);
+  --crepe-color-surface-low: rgba(24, 24, 27, 0.8);
+  --crepe-color-on-surface: #f4f4f5;
+  --crepe-color-on-surface-variant: #a1a1aa;
+  --crepe-color-outline: rgba(63, 63, 70, 0.6);
+  --crepe-color-primary: #38bdf8;
+  --crepe-color-hover: rgba(63, 63, 70, 0.4);
+  --crepe-color-selected: rgba(56, 189, 248, 0.2);
+  --crepe-font-title: var(--editor-font);
+  --crepe-font-default: var(--editor-font);
+  --crepe-font-code: var(--mono-font);
+}
+
+.milkdown {
+  background: transparent !important;
+  color: var(--mac-text) !important;
+}
+
+.dark .milkdown,
+.dark .milkdown .editor,
+.dark .milkdown .ProseMirror {
+  color: #f4f4f5 !important;
+  background: transparent !important;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--editor-font);
+  color: var(--mac-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Vibrancy window backdrop support */
+.mac-vibrancy {
+  background: var(--mac-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.mac-sidebar-vibrancy {
+  background: var(--mac-sidebar);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+/* Custom minimal macOS scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Drag region for macOS titlebar */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Milkdown and Typography refinement */
+.milkdown {
+  outline: none;
+}
+
+.milkdown .editor {
+  outline: none;
+  min-height: 80vh;
+  padding-bottom: 25vh;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+
+/* Headings with comfortable breathing space */
+.milkdown h1 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  border-bottom: 1px solid var(--mac-border);
+  padding-bottom: 0.4rem;
+}
+
+.milkdown h2 {
+  font-size: 1.65rem;
+  font-weight: 650;
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.35;
+}
+
+.milkdown h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+
+.milkdown h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.milkdown p {
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Code block aesthetic */
+.milkdown-code-block {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--mac-border);
+  margin: 1.2rem 0;
+}
+
+.dark .milkdown-code-block,
+.dark .cm-editor {
+  background: rgba(24, 24, 27, 0.75) !important;
+  color: #f4f4f5 !important;
+}
+
+.dark .cm-editor .cm-content,
+.dark .cm-line {
+  color: #f4f4f5 !important;
+}
+
+/* KaTeX dark mode styling */
+.dark .katex,
+.dark .katex-display {
+  color: #f4f4f5 !important;
+}
+
+.dark .katex * {
+  color: inherit !important;
+}
+
+.milkdown pre {
+  font-family: var(--mono-font);
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid var(--mac-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 1.2rem 0;
+  overflow-x: auto;
+}
+
+.dark .milkdown pre {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.milkdown code:not(pre code) {
+  font-family: var(--mono-font);
+  background: rgba(2, 132, 199, 0.08);
+  color: var(--mac-accent);
+  border-radius: 5px;
+  padding: 0.15em 0.4em;
+  font-size: 0.88em;
+}
+
+/* Quotes and Callouts */
+.milkdown blockquote {
+  border-left: 3.5px solid var(--mac-accent);
+  padding-left: 1rem;
+  margin: 1.2rem 0;
+  color: var(--mac-muted);
+  font-style: normal;
+}
+
+/* Table styling */
+.milkdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--mac-border);
+}
+
+.milkdown th, .milkdown td {
+  border: 1px solid var(--mac-border);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+
+.milkdown th {
+  background: rgba(148, 163, 184, 0.12);
+  font-weight: 600;
+}
+
+/* Task lists */
+.milkdown ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0.2rem;
+}
+
+.milkdown li[data-type="taskItem"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.4rem 0;
+}
+
+/* Focus mode style */
+.focus-mode-active .milkdown .ProseMirror > * {
+  opacity: 0.28;
+  transition: opacity 0.25s ease;
+}
+
+.focus-mode-active .milkdown .ProseMirror > *:hover,
+.focus-mode-active .milkdown .ProseMirror > .ProseMirror-selectednode,
+.focus-mode-active .milkdown .ProseMirror > *:focus-within {
+  opacity: 1;
+}
+
+/* Print CSS for clean PDF export */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .milkdown {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .milkdown h1, .milkdown h2, .milkdown h3, .milkdown pre, .milkdown table {
+    page-break-inside: avoid;
+  }
+}

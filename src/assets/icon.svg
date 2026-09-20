@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- macOS Squircle App Icon Base -->
+  <rect x="32" y="32" width="448" height="448" rx="108" fill="url(#bgGrad)" filter="url(#shadow)"/>
+  
+  <!-- Subtle border inner highlight -->
+  <rect x="32" y="32" width="448" height="448" rx="108" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.12"/>
+
+  <!-- Minimalist Markdown 'M' Logo with Zen Quill/Pen Line -->
+  <g transform="translate(116, 140)">
+    <!-- Elegant M character -->
+    <path d="M20 230 V30 L140 150 L260 30 V230" fill="none" stroke="url(#accentGrad)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Down Arrow element of classic MD symbol, stylized as a zen dot / down point -->
+    <path d="M140 180 V230 M110 200 L140 230 L170 200" fill="none" stroke="#38BDF8" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

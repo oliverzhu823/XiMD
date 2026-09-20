@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: 'macos-latest'
+            args: '--target aarch64-apple-darwin'
+          - platform: 'macos-13'
+            args: '--target x86_64-apple-darwin'
+
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin' || 'x86_64-apple-darwin' }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build and Release Tauri App
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_type == 'tag' && github.ref_name || 'v0.1.0' }}
+          releaseName: 'XiMD ${{ github.ref_type == 'tag' && github.ref_name || 'v0.1.0' }}'
+          releaseBody: |
+            ## 🍃 XiMD 发布说明
+            感谢使用 XiMD！本版本提供两种 macOS 架构安装包：
+            - **Apple Silicon (M系列芯片)**: `XiMD_*_aarch64.dmg`
+            - **Intel 芯片**: `XiMD_*_x64.dmg`
+            
+            下载对应架构的 `.dmg` 文件后，双击拖入 Applications 即可使用。
+          releaseDraft: false
+          prerelease: false
+          args: ${{ matrix.args }}

@@ -31,6 +31,27 @@
 
 ---
 
+## 📥 快速下载与安装
+
+无需安装 Node.js 或 Rust 等任何开发环境，直接下载开箱即用的 macOS 安装镜像（`.dmg`）：
+
+| 芯片架构 | 适用机型 | 下载安装包 |
+| :--- | :--- | :--- |
+| 🍏 **Apple Silicon**（推荐） | M1 / M2 / M3 / M4 系列 Mac | [**XiMD_latest_aarch64.dmg**](https://github.com/oliverzhu823/XiMD/releases/latest) |
+| 💻 **Intel x86_64** | 旧款 Intel 处理器 Mac | [**XiMD_latest_x64.dmg**](https://github.com/oliverzhu823/XiMD/releases/latest) |
+
+> 📦 **完整历史版本**：前往 [**GitHub Releases 发布页面**](https://github.com/oliverzhu823/XiMD/releases) 查看所有发行版与更新日志。
+
+#### 💡 macOS 首次打开提示“无法打开”或“未知开发者”？
+因开源独立项目未购买昂贵的 Apple 开发者企业签名证书，macOS Gatekeeper 安全机制可能会拦截未签名应用，按照以下任一方式即可正常打开：
+1. **方式一（推荐）**：在访达（Finder）的「应用程序」中找到 `XiMD`，**按住键盘 `Control` 键并鼠标右键点击应用图标**，在弹出菜单中点击「**打开**」，并在弹窗提示中点击「**仍要打开**」即可（仅需操作一次，后续直接点击即可启动）。
+2. **方式二（终端命令）**：打开终端执行以下命令，移除隔离属性：
+   ```bash
+   xattr -cr /Applications/XiMD.app
+   ```
+
+---
+
 ## 📖 简介
 
 **XiMD** 是一款注重纯粹书写体验与视觉美感的 macOS 原生 Markdown 编辑器。

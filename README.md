@@ -85,8 +85,8 @@
 
 ### 1. 克隆项目与安装依赖
 ```bash
-git clone https://github.com/your-username/xi-md.git
-cd xi-md
+git clone https://github.com/oliverzhu823/XiMD.git
+cd XiMD
 
 # 安装前端依赖
 pnpm install
